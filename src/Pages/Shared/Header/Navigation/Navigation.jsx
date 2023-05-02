@@ -7,10 +7,10 @@ const Navigation = () => {
   return (
     <div>
       <Container>
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar  collapseOnSelect expand="lg" bg="light" variant="light">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Brand href="#home">
-            <img style={{ height: "50px" }} src={logo} alt="" />
+            <img  style={{ height: "50px" }} src={logo} alt="" />
             <span className="fw-bold">FOOD RECIPE</span>
           </Navbar.Brand>
           <Container>
