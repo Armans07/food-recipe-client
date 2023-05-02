@@ -7,25 +7,25 @@ const Navigation = () => {
   return (
     <div>
       <Container>
-        <Navbar  collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Brand href="#home">
-            <img  style={{ height: "50px" }} src={logo} alt="" />
-            <span className="fw-bold">FOOD RECIPE</span>
+            <img  className="text-light" style={{ height: "50px" }} src={logo} alt="" />
+            <span className="fw-bold text-light">FOOD RECIPE</span>
           </Navbar.Brand>
           <Container>
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mx-auto d-flex gap-2 ">
-                <Link className="text-decoration-none" to={"/"}>
+                <Link className="text-decoration-none text-light" to={"/"}>
                   Home
                 </Link>
-                <Link className="text-decoration-none">Blog</Link>
-                <Link className="text-decoration-none">User</Link>
+                <Link className="text-decoration-none text-light">Blog</Link>
+                <Link className="text-decoration-none text-light">User</Link>
               </Nav>
               <Nav className="d-flex gap-2">
-                <FaUserCircle style={{ fontSize: "2.5rem" }}></FaUserCircle>
+                <FaUserCircle className="text-light" style={{ fontSize: "2.5rem" }}></FaUserCircle>
                 <Link to="/login">
-                  <Button variant="secondary">Login</Button>
+                  <Button variant="success">Login</Button>
                 </Link>
               </Nav>
             </Navbar.Collapse>

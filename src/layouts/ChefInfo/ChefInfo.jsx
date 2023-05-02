@@ -25,7 +25,7 @@ const ChefInfo = ({chef}) => {
                 <p>Likes</p>
                 {likes}
               </Card.Text>
-          <Button variant="primary">View Recipe</Button>
+          <Button variant="success">View Recipe</Button>
             </Card.Body>
           </Card>
         </Col>
