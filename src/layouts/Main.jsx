@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Pages/Shared/Header/Header';
 import Footer from '../Pages/Shared/Footer/Footer';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import {Col, Container, Row } from 'react-bootstrap';
 import RightSide from '../Pages/Shared/rightSide/RightSide';
 import Chef from './chef/Chef';
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
 
@@ -14,6 +15,7 @@ const Main = () => {
                 <Row>
                     <Col lg={12}>
                         <Chef></Chef>
+                        <Outlet></Outlet>
                     </Col>
                     <Col lg={4}>
                         <RightSide></RightSide>

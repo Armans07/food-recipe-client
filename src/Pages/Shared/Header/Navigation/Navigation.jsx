@@ -19,7 +19,7 @@ const Navigation = () => {
                 <Link className="text-decoration-none text-light" to={"/"}>
                   Home
                 </Link>
-                <Link className="text-decoration-none text-light">Blog</Link>
+                <Link to='blog' className="text-decoration-none text-light">Blog</Link>
                 <Link className="text-decoration-none text-light">User</Link>
               </Nav>
               <Nav className="d-flex gap-2">
