@@ -7,8 +7,8 @@ const Recipe = () => {
     const recipes = useLoaderData()
     const {id,picture,chef_name,years_of_experience,num_of_recipes,likes}=recipes; 
     return (
-        <div className='d-flex justify-content-center'>
-                <Card className="w-50 mb-4">
+        <div className=''>
+                <Card className="w-50 mb-4 mx-auto">
             <Card.Header className='d-flex align-items-center'>
                 <Card.Img variant="top" src={picture} />
             </Card.Header>
