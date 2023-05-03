@@ -3,7 +3,10 @@ import { Button, Card } from 'react-bootstrap';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+
 const ChefsLayout = ({chef}) => {
+
+
     const { id, picture, chef_name, years_of_experience, num_of_recipes, likes } =chef;
     return (
         <div>
