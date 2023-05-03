@@ -3,6 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 
+
 const Recipe = () => {
     const recipes = useLoaderData()
     const {id,picture,chef_name,years_of_experience,num_of_recipes,likes}=recipes; 

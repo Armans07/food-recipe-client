@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const ChefsLayout = ({chef}) => {
 
-
     const { id, picture, chef_name, years_of_experience, num_of_recipes, likes } =chef;
     return (
         <div>
