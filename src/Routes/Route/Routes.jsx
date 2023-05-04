@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <PrivetRoute><Recipe></Recipe> </PrivetRoute> ,
-                loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+                loader: ({ params }) => fetch(`https://food-recipe-armans07.vercel.app/chefs/${params.id}`)
             }
         ]
     },

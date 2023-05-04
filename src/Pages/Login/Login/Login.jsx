@@ -5,8 +5,24 @@ import Footer from '../../Footer/Footer';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGithubAlt, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
+import app from '../../../firebase/firebase.config';
 
 const Login = () => {
+    const auth = getAuth(app)
+    const provider =new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () =>{
+        signInWithPopup(auth,provider)
+        .then(result =>{
+            const user =result.user;
+            console.log(user);
+        })
+        .catch(error=>{
+            console.log('error', error.message)
+        })
+
+    }
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,6 +30,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
+       
         event.preventDefault();
 
         const form = event.target;
@@ -59,7 +76,7 @@ const Login = () => {
                             Dont'n Have an Account? <Link to='/register'>Register</Link>
                         </Form.Text>
                         <br />
-                        <Button className='my-2' variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
+                        <Button onClick={handleGoogleSignIn} className='my-2' variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
                         <br />
                         <Button variant="outline-secondary"><FaGithub></FaGithub> Login With GitHub</Button>
 
