@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGithubAlt, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
+
+    const handleLogin = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email =form.email.value;
+        const password = form.password.value;
+        console.log(email,password)
+
+        signIn(email,password)
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+        
+    }
+
     return (
         <div>
             <Container>
                 <Navbar></Navbar>
                 <h3 className='text-center fw-semibold'>Please Login</h3>
-                <Form className='mx-auto w-25'>
+                <Form onSubmit={handleLogin} className='mx-auto w-25'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" name='email' placeholder="Enter email" required />
@@ -35,8 +57,8 @@ const Login = () => {
                         <Button className='my-2' variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
                         <br />
                         <Button variant="outline-secondary"><FaGithub></FaGithub> Login With GitHub</Button>
-                        
-                     
+
+
                     </div>
                     <Form.Text className="text-success">
 
