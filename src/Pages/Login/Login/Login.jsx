@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
@@ -9,14 +9,15 @@ import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
 import app from '../../../firebase/firebase.config';
 
 const Login = () => {
+    const [user,setUser]=useState(null)
     const auth = getAuth(app)
     const provider =new GoogleAuthProvider();
 
     const handleGoogleSignIn = () =>{
         signInWithPopup(auth,provider)
         .then(result =>{
-            const user =result.user;
-            console.log(user);
+            const loggedUser =result.user;
+            console.log(loggedUser);
         })
         .catch(error=>{
             console.log('error', error.message)
