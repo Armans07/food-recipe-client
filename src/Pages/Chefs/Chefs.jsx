@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ChefsLayout from '../../layouts/layout/ChefsLayout/ChefsLayout';
 import { Container } from 'react-bootstrap';
-import NavigationBar from '../../Shared/NavigationBar/NavigationBar';
 
 const Chefs = () => {
     const [chefs, setChefs] = useState([]);

@@ -1,37 +1,69 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { FaRegThumbsUp } from 'react-icons/fa';
+import {Card,Container } from 'react-bootstrap';
+import { FaHeart,  FaRegStar,FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import Rating from 'react-rating';
 
 
 const Recipe = () => {
-    const recipes = useLoaderData()
-    const {id,picture,chef_name,years_of_experience,num_of_recipes,likes}=recipes; 
+    const recepies = useLoaderData()
+    console.log(recepies)
+    const { description, name, num_recipes, picture, recipes, years_of_experience, } = recepies;
     return (
-        <div className=''>
-                <Card className="w-50 mb-4 mx-auto">
-            <Card.Header className='d-flex align-items-center'>
-                <Card.Img variant="top" src={picture} />
-            </Card.Header>
-            <Card.Body>
-                <Card.Title>{chef_name}</Card.Title>
-                <Card.Text>
-                    <p><small>Years of Experience: {years_of_experience}</small></p>
-                    <div className='text-muted d-flex'>
-                        <div className='flex-grow-1'>
-                            <p><small>Number of Recipes: {num_of_recipes}</small></p>
-                        </div>
-                        <div>
-                            <FaRegThumbsUp /> {likes}
-                        </div>
-                    </div>
-                </Card.Text>
-            </Card.Body>
-            <Card.Footer className="text-center">
-                <Link to={`/chefs/${id}`}><Button className='w-100 text-semibold' variant="success">View Recipe</Button></Link>
-            </Card.Footer>
-        </Card>
-        </div>
+        <Container>
+            <div className=' mt-5 d-md-flex justify-content-between'>
+                <img className='img-fluid rounded-start' style={{ height: "250px", width: "500px" }} src={picture} alt="" />
+
+
+                <div className=' mx-5'>
+                    <p><span className='fw-bold'>Chef Name :</span> <small>{name}</small></p>
+                    <p><small><span className='fw-bold'>Description :</span> {description}</small></p>
+                    <p><small><span className='fw-bold'>Number of Recipe :</span> {num_recipes}</small></p>
+                    <p><small><span className='fw-bold'>Experience :</span> {years_of_experience}</small></p>
+                </div>
+
+            </div>
+            <section className='d-flex gap-4 my-5 mx-auto'>
+                {
+                    recipes.map(rs => <div
+                        key={rs.name}
+                    >
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={rs.recipe_img} />
+                            <Card.Body>
+                                <Card.Title>{rs.name}</Card.Title>
+                                <Card.Text>
+                                    <p><small>Method of cooking</small></p>
+                                    {rs.method_of_cooking}
+                                </Card.Text>
+                                <hr />
+                                <Card.Text>
+                                    <p><small>Ingredients</small></p>
+                                    {rs.ingredients}
+                                </Card.Text>
+                                <Card.Footer>
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <div className='d-flex gap-1 align-items-center'>
+                                            <Rating
+                                                placeholderRating={rs.ratings}
+                                                readonly
+                                                emptySymbol={<FaRegStar />}
+                                                placeholderSymbol={<FaStar className='text-warning'></FaStar>}
+                                                fullSymbol={<FaStar />}
+                                            > </Rating>
+                                            <span>{rs.ratings}</span>
+                                        </div>
+                                        <Link className='text-decoration-none'><FaHeart className='text-success'></FaHeart></Link>
+                                    </div>
+                                </Card.Footer>
+
+                            </Card.Body>
+                        </Card>
+                    </div>)
+                }
+            </section>
+
+        </Container>
     );
 };
 

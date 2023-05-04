@@ -7,6 +7,7 @@ import Chefs from '../../../Pages/Chefs/Chefs';
 import Banner from '../../../Pages/Home/Banner/Banner';
 
 const Main = () => {
+    
     return (
         <div>
             <Container>

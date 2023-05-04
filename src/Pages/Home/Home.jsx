@@ -1,4 +1,5 @@
 import React from 'react';
+import Chefs from '../Chefs/Chefs';
 
 const Home = () => {
     return (
