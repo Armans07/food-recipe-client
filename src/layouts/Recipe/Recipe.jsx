@@ -1,14 +1,23 @@
 import React from 'react';
-import {Card,Container } from 'react-bootstrap';
+import {Button, Card,Container } from 'react-bootstrap';
 import { FaHeart,  FaRegStar,FaStar } from 'react-icons/fa';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import Rating from 'react-rating';
+import { toast } from 'react-toastify';
 
 
 const Recipe = () => {
     const recepies = useLoaderData()
     console.log(recepies)
     const { description, name, num_recipes, picture, recipes, years_of_experience, } = recepies;
+
+    const handleClick = event =>{
+        event.currentTarget.disabled =true;
+        toast('Added Favourite')
+    }
+        
+        
+    
     return (
         <Container>
             <div className=' mt-5 d-md-flex justify-content-between'>
@@ -53,7 +62,8 @@ const Recipe = () => {
                                             > </Rating>
                                             <span>{rs.ratings}</span>
                                         </div>
-                                        <Link className='text-decoration-none'><FaHeart className='text-success'></FaHeart></Link>
+                                        <Button  variant='success' onClick={handleClick}><FaHeart></FaHeart></Button>
+                                        
                                     </div>
                                 </Card.Footer>
 

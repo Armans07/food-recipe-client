@@ -7,6 +7,7 @@ import Login from "../../Pages/Login/Login/Login";
 import ErrorPage from "../../Errorpage/ErrorPage";
 import Blog from "../../Blog/Blog";
 import Register from "../../Pages/Login/Register/Register";
+import PrivetRoute from "./PrivetRoute";
 
 
 
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <Recipe></Recipe>,
+                element: <PrivetRoute><Recipe></Recipe> </PrivetRoute> ,
                 loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
             }
         ]
