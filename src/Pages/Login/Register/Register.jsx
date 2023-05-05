@@ -4,19 +4,24 @@ import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import { FaAngleRight, FaRegTimesCircle } from 'react-icons/fa';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
-    const [error, setError] = useState();
+    const [error, setError] = useState('');
     const handleRegister = event => {
         event.preventDefault()
+        setError('')
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
         const email = form.email.value
         const password = form.password.value;
+        if(!/(?=.*[A-Z])/.test(password)){
+            setError('Please add at least one uppercase')
+        }
         if (password.length < 6) {
-            setError('Password have been six chars')
+            setError('Password have been must six characters')
         }
 
         console.log(name, photo, password, email)
@@ -24,6 +29,7 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser)
+                setError('')
             })
             .catch(error => {
                 console.log(error)
@@ -52,23 +58,22 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" name='a' label="Accept and terms Conditations" />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
+                <Button variant="success" type="submit">
                     Register
                 </Button>
+                <br />
+                <Form.Text className="text-danger">
+                {error}
+                </Form.Text>
                 <br />
                 <Form.Text className="text-secondary">
                     Already  Have an Account? <Link to='/login'>Login</Link>
                 </Form.Text>
+                <br />
                 <Form.Text className="text-success">
-
+                    
                 </Form.Text>
-                <Form.Text className="text-danger">
-
-                </Form.Text>
+               
             </Form>
 
             <Footer></Footer>
