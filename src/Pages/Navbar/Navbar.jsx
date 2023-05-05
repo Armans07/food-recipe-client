@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Button, Image } from 'react-bootstrap';
-
+import './Navbar.css'
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
@@ -13,7 +13,7 @@ const Navbar = () => {
     }
     return (
 
-        <div>
+        <div className='header'>
             <nav className='d-flex flex-grow-1 my-2 px-2'>
                 <Link className='flex-grow-1 fw-bold text-decoration-none text-dark' to='/'><h4 >FOOD RECIPE</h4></Link>
                 <div className='d-flex flex-grow-1 gap-3 '>
