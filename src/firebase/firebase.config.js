@@ -5,14 +5,14 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyALftuHsSEF8h7QjmWquEQTr9N2yKeBTTQ",
-  authDomain: "food-recipe-client-f6709.firebaseapp.com",
-  projectId: "food-recipe-client-f6709",
-  storageBucket: "food-recipe-client-f6709.appspot.com",
-  messagingSenderId: "601559365764",
-  appId: "1:601559365764:web:096ad4d712f5802ef72ad1"
+  apiKey: "AIzaSyDP2ZykrpAInsUjBUzUXrCz5vwcz8oGvrY",
+  authDomain: "food-recipe-client-d6816.firebaseapp.com",
+  projectId: "food-recipe-client-d6816",
+  storageBucket: "food-recipe-client-d6816.appspot.com",
+  messagingSenderId: "558951201356",
+  appId: "1:558951201356:web:545e24d3301f437519d2e9"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export default app ;
+export default app;

@@ -13,6 +13,7 @@ const Chefs = () => {
     return (
         <Container>
 
+            <h2 className='text-center my-5 fw-bold text-success'>All Chefs</h2>
             <div className='row row-cols-1 row-cols-md-2 mt-5'>
                 {
                     chefs.map(chef => <ChefsLayout

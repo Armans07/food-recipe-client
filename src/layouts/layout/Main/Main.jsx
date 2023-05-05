@@ -5,6 +5,8 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../../../Pages/Footer/Footer';
 import Chefs from '../../../Pages/Chefs/Chefs';
 import Banner from '../../../Pages/Home/Banner/Banner';
+import Contact from '../../../Pages/Contact/Contact';
+import FoodItem from '../../../Pages/FoodItem/FoodItem';
 
 const Main = () => {
     
@@ -18,6 +20,8 @@ const Main = () => {
                         <Chefs></Chefs>
                         <Outlet></Outlet>
                     </Col>
+                    <FoodItem></FoodItem>
+                    <Contact></Contact>
                 </Row>
                 <Footer></Footer>
             </Container>

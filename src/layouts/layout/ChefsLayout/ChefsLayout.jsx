@@ -9,6 +9,7 @@ const ChefsLayout = ({chef}) => {
     const { id, picture, chef_name, years_of_experience, num_of_recipes, likes } =chef;
     return (
         <div >
+            
             <Card className="mb-4">
             <Card.Header className='d-flex align-items-center'>
                 <div className='mx-auto'>
