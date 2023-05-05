@@ -24,8 +24,10 @@ const Navbar = () => {
                     <NavLink className={({ isActive }) => (isActive ? 'text-success-600 text-decoration-none' : 'text-black text-decoration-none')} to='/about'>About</NavLink>
                    
                 </div>
+                   <div>
+                   
+                   </div>
                 <div className='d-flex gap-1'> 
-                    <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
                     {user ?
                         <Button onClick={handleLogOut} variant='success'>Logout</Button>:
                         <Link to='/login'><button className='btn btn-success'>Login</button></Link>}

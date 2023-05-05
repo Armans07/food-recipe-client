@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Button, Card, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { FaAngleRight, FaRegTimesCircle } from 'react-icons/fa';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser,updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const handleRegister = event => {
         event.preventDefault();
@@ -29,6 +28,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
+                updateUserProfile(createdUser,name,photo);
                 console.log(createdUser)
                 setError('')
             })

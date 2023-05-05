@@ -1,18 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState} from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGithub, FaGithubAlt, FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import {GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
 import app from '../../../firebase/firebase.config';
 
 const Login = () => {
-    const [user,setUser]=useState(null)
+    const [user,setUser]=useState()
     const auth = getAuth(app)
     const googleProvider =new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider()
+    const githubProvider = new GithubAuthProvider();
 
 
     const handleGoogleSignIn = () =>{
