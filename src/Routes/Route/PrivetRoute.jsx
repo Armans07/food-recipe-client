@@ -8,7 +8,7 @@ const PrivetRoute = ({children}) => {
     const location = useLocation();
     console.log(location)
   if(loading){  
-    return <Spinner className='text-center' animation="border" variant="success" />
+    return <div  className='text-center'><Spinner animation="border" variant="success" /></div>
   }
 
     if(user){

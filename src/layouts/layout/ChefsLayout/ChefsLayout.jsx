@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FaRegThumbsUp } from 'react-icons/fa';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 
 
@@ -11,6 +12,7 @@ const ChefsLayout = ({chef}) => {
         <div>
             <Card className="mb-4">
             <Card.Header className='d-flex align-items-center'>
+                                
                 <Card.Img variant="top" src={picture} />
             </Card.Header>
             <Card.Body>
