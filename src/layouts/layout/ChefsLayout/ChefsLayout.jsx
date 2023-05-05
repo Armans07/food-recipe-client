@@ -4,19 +4,26 @@ import { FaRegThumbsUp } from 'react-icons/fa';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 
-
 const ChefsLayout = ({chef}) => {
 
     const { id, picture, chef_name, years_of_experience, num_of_recipes, likes } =chef;
     return (
-        <div>
+        <div >
             <Card className="mb-4">
             <Card.Header className='d-flex align-items-center'>
-                                
-                <Card.Img variant="top" src={picture} />
+                <div className='mx-auto'>
+                <LazyLoadImage
+                                alt={""}
+                                height={""}
+                                src={picture} 
+                                width={"400px"} />
+             
+                </div>
             </Card.Header>
             <Card.Body>
-                <Card.Title>{chef_name}</Card.Title>
+             
+                    <Card.Title>{chef_name}</Card.Title>
+                
                 <Card.Text>
                     <p><small>Years of Experience: {years_of_experience}</small></p>
                     <div className='text-muted d-flex'>
