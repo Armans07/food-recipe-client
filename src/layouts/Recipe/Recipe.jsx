@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
-import { FaHeart, FaRegStar, FaStar } from 'react-icons/fa';
+import { FaHeart, FaRegStar, FaRegThumbsUp, FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import Rating from 'react-rating';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,7 +11,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const Recipe = () => {
     const recepies = useLoaderData()
     console.log(recepies)
-    const { description, chef_name, num_recipes, picture, recipes, years_of_experience, } = recepies;
+    const { description, chef_name, num_of_recipes, picture, recipes, years_of_experience, likes} = recepies;
 
     const handleClick = event => {
         event.currentTarget.disabled = true;
@@ -26,8 +26,11 @@ const Recipe = () => {
                 <div className=' mx-5'>
                     <p><span className='fw-bold'>Chef Name :</span> <small>{chef_name}</small></p>
                     <p><small><span className='fw-bold'>Description :</span> {description}</small></p>
-                    <p><small><span className='fw-bold'>Number of Recipe :</span> {num_recipes}</small></p>
+                    <p><small><span className='fw-bold'>Number of Recipe :</span> {num_of_recipes}</small></p>
                     <p><small><span className='fw-bold'>Experience :</span> {years_of_experience}</small></p>
+                    <div>
+                            <FaRegThumbsUp /> {likes}
+                        </div>
                 </div>
 
             </div>

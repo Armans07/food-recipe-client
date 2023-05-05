@@ -8,9 +8,11 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 const Register = () => {
     const { createUser,updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const handleRegister = event => {
         event.preventDefault();
         setError('')
+        setSuccess('')
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
@@ -23,6 +25,7 @@ const Register = () => {
         if (password.length < 6) {
             setError('Password have been must six characters')
         }
+        
 
         console.log(name, photo, password, email)
         createUser(email, password)
@@ -31,6 +34,7 @@ const Register = () => {
                 updateUserProfile(createdUser,name,photo);
                 console.log(createdUser)
                 setError('')
+                setSuccess('Its Done')
             })
             .catch(error => {
                 console.log(error)
@@ -72,7 +76,7 @@ const Register = () => {
                 </Form.Text>
                 <br />
                 <Form.Text className="text-success">
-                    
+                    {success}
                 </Form.Text>
                
             </Form>

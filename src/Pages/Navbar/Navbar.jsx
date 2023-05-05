@@ -4,7 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { Button, Image } from 'react-bootstrap';
 
 const Navbar = () => {
-    
+
     const { user, logOut } = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -24,7 +24,7 @@ const Navbar = () => {
                 </div>
                 <div className='d-flex gap-2 mx-auto'>
                     {
-                        user && <Image style={{height:'2rem'}} src={user.photoURL} roundedCircle />
+                        user && <Image title={user.displayName} style={{height:'2rem'}} src={user.photoURL} roundedCircle />
                     } 
                    
                     {user ?

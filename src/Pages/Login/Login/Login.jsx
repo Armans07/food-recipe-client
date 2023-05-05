@@ -39,7 +39,6 @@ const Login = () => {
 
     }
 
-
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -74,7 +73,6 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" name='email' placeholder="Enter email" required />
-
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
