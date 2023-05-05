@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "food-recipe-client-d6816",
   storageBucket: "food-recipe-client-d6816.appspot.com",
   messagingSenderId: "558951201356",
-  appId: "1:558951201356:web:545e24d3301f437519d2e9"
+  appId: "1:558951201356:web:545e24d3301f437519d2e9",
 };
 
 // Initialize Firebase

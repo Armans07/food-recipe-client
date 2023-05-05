@@ -9,8 +9,6 @@ import Blog from "../../Blog/Blog";
 import Register from "../../Pages/Login/Register/Register";
 import PrivetRoute from "./PrivetRoute";
 
-
-
 const router = createBrowserRouter([
     {
         path: '/',
@@ -42,7 +40,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <PrivetRoute><Recipe></Recipe> </PrivetRoute> ,
+                element: <PrivetRoute><Recipe></Recipe> </PrivetRoute>,
                 loader: ({ params }) => fetch(`https://food-recipe-flax.vercel.app/chefs/${params.id}`)
             }
         ]

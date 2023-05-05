@@ -11,7 +11,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const Recipe = () => {
     const recepies = useLoaderData()
     console.log(recepies)
-    const { description, chef_name, num_of_recipes, picture, recipes, years_of_experience, likes} = recepies;
+    const { description, chef_name, num_of_recipes, picture, recipes, years_of_experience, likes } = recepies;
 
     const handleClick = event => {
         event.currentTarget.disabled = true;
@@ -29,8 +29,8 @@ const Recipe = () => {
                     <p><small><span className='fw-bold'>Number of Recipe :</span> {num_of_recipes}</small></p>
                     <p><small><span className='fw-bold'>Experience :</span> {years_of_experience}</small></p>
                     <div>
-                            <FaRegThumbsUp /> {likes}
-                        </div>
+                        <FaRegThumbsUp /> {likes}
+                    </div>
                 </div>
 
             </div>
@@ -45,7 +45,7 @@ const Recipe = () => {
                                 alt={""}
                                 height={rs.height}
                                 scrollPosition={rs.scrollPosition}
-                                src={rs.recipe_img} 
+                                src={rs.recipe_img}
                                 width={rs.width} />
 
                             <Card.Body>

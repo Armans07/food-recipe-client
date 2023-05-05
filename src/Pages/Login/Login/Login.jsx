@@ -1,42 +1,38 @@
-import React, { useContext, useState} from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import {GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import app from '../../../firebase/firebase.config';
 
 const Login = () => {
-    const [user,setUser]=useState()
     const auth = getAuth(app)
-    const googleProvider =new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
-
-    const handleGoogleSignIn = () =>{
-        signInWithPopup(auth,googleProvider)
-        .then(result =>{
-            const loggedUser =result.user;
-            console.log(loggedUser);
-        })
-        .catch(error=>{
-            console.log('error', error.message)
-        })
-
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
     }
 
-    const handleGithubSignIn = () =>{
-        signInWithPopup(auth,githubProvider)
-        .then(result =>{
-            const loggedUser =result.user;
-            console.log(loggedUser);
-        })
-        .catch(error=>{
-            console.log('error', error.message)
-        })
-
+    const handleGithubSignIn = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
     }
 
     const { signIn } = useContext(AuthContext);
@@ -51,17 +47,15 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
-
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                navigate(from ,{replace: true})
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
             })
-
     }
 
     return (
@@ -74,12 +68,10 @@ const Login = () => {
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" name='email' placeholder="Enter email" required />
                     </Form.Group>
-
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
-
                     <div className='text-center'>
                         <Button className='mb-2' variant="success" type="submit">
                             Login
@@ -92,14 +84,10 @@ const Login = () => {
                         <Button onClick={handleGoogleSignIn} className='my-2' variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
                         <br />
                         <Button onClick={handleGithubSignIn} variant="outline-secondary"><FaGithub></FaGithub> Login With GitHub</Button>
-
-
                     </div>
                     <Form.Text className="text-success">
-
                     </Form.Text>
                     <Form.Text className="text-danger">
-
                     </Form.Text>
                 </Form>
                 <Footer></Footer>

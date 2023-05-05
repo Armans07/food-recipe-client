@@ -20,15 +20,15 @@ const Navbar = () => {
                     <NavLink className={({ isActive }) => (isActive ? 'text-success-600 text-decoration-none' : 'text-black text-decoration-none')} to='/'>Home</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'text-success-600 text-decoration-none' : 'text-black text-decoration-none')} to='/blog'>Blog</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'text-success-600 text-decoration-none' : 'text-black text-decoration-none')} to='/about'>About</NavLink>
-                   
+
                 </div>
                 <div className='d-flex gap-2 mx-auto'>
                     {
-                        user && <Image title={user.displayName} style={{height:'2rem'}} src={user.photoURL} roundedCircle />
-                    } 
-                   
+                        user && <Image title={user.displayName} style={{ height: '2rem' }} src={user.photoURL} roundedCircle />
+                    }
+
                     {user ?
-                        <Button onClick={handleLogOut} variant='success'>Logout</Button>:
+                        <Button onClick={handleLogOut} variant='success'>Logout</Button> :
                         <Link to='/login'><button className='btn btn-success'>Login</button></Link>}
                 </div>
             </nav>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Register = () => {
-    const { createUser,updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const handleRegister = event => {
@@ -18,20 +18,19 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value
         const password = form.password.value;
-        
-        if(!/(?=.*[A-Z])/.test(password)){
+
+        if (!/(?=.*[A-Z])/.test(password)) {
             setError('Please add at least one uppercase')
         }
         if (password.length < 6) {
             setError('Password have been must six characters')
         }
-        
 
         console.log(name, photo, password, email)
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
-                updateUserProfile(createdUser,name,photo);
+                updateUserProfile(createdUser, name, photo);
                 console.log(createdUser)
                 setError('')
                 setSuccess('Its Done')
@@ -39,8 +38,6 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             })
-
-
 
     }
     return (
@@ -68,7 +65,7 @@ const Register = () => {
                 </Button>
                 <br />
                 <Form.Text className="text-danger">
-                {error}
+                    {error}
                 </Form.Text>
                 <br />
                 <Form.Text className="text-secondary">
@@ -78,7 +75,7 @@ const Register = () => {
                 <Form.Text className="text-success">
                     {success}
                 </Form.Text>
-               
+
             </Form>
 
             <Footer></Footer>

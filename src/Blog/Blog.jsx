@@ -29,8 +29,7 @@ const Blog = () => {
                             <Button variant='success' onClick={toPdf}>Download PDF</Button>
                         )}
                     </Pdf>
-
-                </div>
+            </div>
 
             <Footer></Footer>
         </Container>

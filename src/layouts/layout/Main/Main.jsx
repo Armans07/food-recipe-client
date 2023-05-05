@@ -9,7 +9,7 @@ import Contact from '../../../Pages/Contact/Contact';
 import FoodItem from '../../../Pages/FoodItem/FoodItem';
 
 const Main = () => {
-    
+
     return (
         <div>
             <Container>
