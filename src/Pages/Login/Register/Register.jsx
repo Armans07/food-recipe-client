@@ -10,13 +10,14 @@ const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [error, setError] = useState('');
     const handleRegister = event => {
-        event.preventDefault()
+        event.preventDefault();
         setError('')
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
         const email = form.email.value
         const password = form.password.value;
+        
         if(!/(?=.*[A-Z])/.test(password)){
             setError('Please add at least one uppercase')
         }
