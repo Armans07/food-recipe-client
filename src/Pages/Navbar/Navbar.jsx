@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 
 const Navbar = () => {
-
-
+    
     const { user, logOut } = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -24,10 +22,11 @@ const Navbar = () => {
                     <NavLink className={({ isActive }) => (isActive ? 'text-success-600 text-decoration-none' : 'text-black text-decoration-none')} to='/about'>About</NavLink>
                    
                 </div>
-                   <div>
+                <div className='d-flex gap-2 mx-auto'>
+                    {
+                        user && <Image style={{height:'2rem'}} src={user.photoURL} roundedCircle />
+                    } 
                    
-                   </div>
-                <div className='d-flex gap-1'> 
                     {user ?
                         <Button onClick={handleLogOut} variant='success'>Logout</Button>:
                         <Link to='/login'><button className='btn btn-success'>Login</button></Link>}
